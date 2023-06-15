@@ -1,0 +1,227 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Pokedex API",
+    "description": "Pokemons API Information",
+    "version": "1.0.0"
+  },
+  "tags": [
+    {
+      "name": "Pokemons",
+      "description": "Everything about your Pokemons"
+    },
+    {
+      "name": "Users",
+      "description": "Everything about Users"
+    }
+  ],
+  "paths": {
+    "/api/pokemons": {
+      "get": {
+        "tags": [
+          "Pokemons"
+        ],
+        "summary": "Get all pokemons",
+        "description": "Get all pokemons",
+        "operationId": "updatePet",
+        "responses": {
+          "200": {
+            "description": "A successful response"
+          },
+          "404": {
+            "description": "Error"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Pokemons"
+        ],
+        "summary": "Create a pokemon",
+        "description": "Create a pokemon",
+        "responses": {
+          "201": {
+            "description": "A successful response"
+          },
+          "404": {
+            "description": "Error"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Pokemons"
+        ],
+        "description": "Delete a pokemon",
+        "responses": {
+          "200": {
+            "description": "A successful response"
+          },
+          "204": {
+            "description": "No content"
+          },
+          "404": {
+            "description": "Error"
+          }
+        }
+      }
+    },
+    "/api/pokemons/latest/": {
+      "get": {
+        "tags": [
+          "Pokemons"
+        ],
+        "summary": "Get the 3 latest pokemons",
+        "description": "Get the 3 latest pokemons",
+        "responses": {
+          "200": {
+            "description": "A successful response"
+          },
+          "204": {
+            "description": "No content"
+          },
+          "404": {
+            "description": "Error"
+          }
+        }
+      }
+    },
+    "/api/pokemons/{id}": {
+      "get": {
+        "tags": [
+          "Pokemons"
+        ],
+        "summary": "Get one pokemon by id",
+        "description": "Get one pokemon by id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response"
+          },
+          "204": {
+            "description": "No content"
+          },
+          "404": {
+            "description": "Error"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Pokemons"
+        ],
+        "description": "Update a pokemon by id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response"
+          },
+          "204": {
+            "description": "No content"
+          },
+          "404": {
+            "description": "Error"
+          }
+        }
+      }
+    },
+    "/api/pokemons/name/{name}": {
+      "get": {
+        "tags": [
+          "Pokemons"
+        ],
+        "summary": "Get one pokemon by name",
+        "description": "Get one pokemon by name",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "description": "Name of pokemons to return",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response"
+          },
+          "204": {
+            "description": "No content"
+          },
+          "404": {
+            "description": "Error"
+          }
+        }
+      }
+    },
+    "/api/users/login": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "description": "Use to login a user",
+        "responses": {
+          "200": {
+            "description": "A successful response"
+          },
+          "404": {
+            "description": "Error"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/api/users/profile": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "description": "Get user profile using cookie",
+        "responses": {
+          "200": {
+            "description": "A successful response"
+          },
+          "204": {
+            "description": "No content"
+          }
+        }
+      }
+    },
+    "/api/users/logout": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "description": "Use to logout a user (clear cookie)",
+        "responses": {
+          "204": {
+            "description": "A successful response / No content"
+          }
+        }
+      }
+    }
+  }
+}
